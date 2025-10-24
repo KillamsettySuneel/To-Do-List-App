@@ -1,0 +1,466 @@
+/* Root App Styles */
+.App {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main Container */
+.todo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.todo-header {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.todo-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.todo-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Task Statistics */
+.task-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 80px;
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4caf50;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input Section */
+.input-section {
+    padding: 30px;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.task-input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.input-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    text-transform: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-add {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+}
+
+.btn-add:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    color: white;
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    outline: none;
+}
+
+.filter-btn:hover {
+    border-color: #4caf50;
+    color: #4caf50;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    border-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Tasks Section */
+.tasks-section {
+    max-height: 500px;
+    overflow-y: auto;
+    background: white;
+}
+
+.tasks-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tasks-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.tasks-section::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.tasks-section::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    color: #666;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Task List */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    animation: taskSlideIn 0.3s ease-out;
+}
+
+@keyframes taskSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.task-item:hover {
+    background: #f8f9fa;
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background: #f0f8f0;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 15px;
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4caf50;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.task-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-date {
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Editing Section */
+.editing-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.edit-input {
+    padding: 10px 15px;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .App {
+        padding: 10px;
+    }
+
+    .todo-container {
+        border-radius: 15px;
+    }
+
+    .todo-header {
+        padding: 20px;
+    }
+
+    .todo-header h1 {
+        font-size: 2rem;
+    }
+
+    .input-section {
+        padding: 20px;
+    }
+
+    .input-buttons {
+        flex-direction: column;
+    }
+
+    .filter-section {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    .filter-btn {
+        margin-bottom: 5px;
+    }
+
+    .task-item {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .task-content {
+        width: 100%;
+    }
+
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .stat-item {
+        min-width: 60px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .task-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+}
